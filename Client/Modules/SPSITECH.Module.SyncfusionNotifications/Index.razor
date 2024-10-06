@@ -1,0 +1,46 @@
+
+
+@namespace SPSITECH.Module.SyncfusionNotifications
+@inherits ModuleBase
+@inject NavigationManager NavigationManager
+@inject IStringLocalizer<Index> Localizer
+
+@inject ToastService toastService
+
+<ToastComp />
+
+TESTING
+
+<button class="e-btn" @onclick="@ShowOnClick">Show Toasts</button>
+
+
+@code {
+    public override string RenderMode => RenderModes.Interactive;
+
+  //  public override List<Resource> Resources => new List<Resource>()
+   // {
+  //      new Resource { ResourceType = ResourceType.Stylesheet, Url = ModulePath() + "Module.css" },
+  //      new Resource { ResourceType = ResourceType.Script, Url = ModulePath() + "Module.js" }
+  //  };
+
+
+    private void ShowOnClick()
+    {
+        
+
+        this.toastService.ShowToast(new ToastOption()
+            {
+                Title = "test2",
+                Content = "test2",
+                CssClass = "e-toast-success",
+                ToastTarget = "#toast_pos_target" // have to set the toast target here so notification is visible in oqtane
+            });
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+       
+    }
+
+    
+}

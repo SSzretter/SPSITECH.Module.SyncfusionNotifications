@@ -1,0 +1,51 @@
+@using Syncfusion.Blazor
+@using static Microsoft.AspNetCore.Components.Web.RenderMode
+@namespace SPSITECH.Module.SyncfusionNotifications
+@inject ToastService toastService
+@rendermode InteractiveServer
+
+<div id="toast_pos_target"></div>
+<SfToast @ref="Toast" Timeout=@Options.Timeout CssClass="@Options.CssClass" Target="@Options.ToastTarget">
+    <ToastTemplates>
+        <Title>
+            @Options.Title
+        </Title>
+        <Content>
+            @Options.Content
+        </Content>
+    </ToastTemplates>
+    <ToastPosition X="@Options.PositionX"></ToastPosition>
+</SfToast>
+
+<style>
+    #toast_pos_target {
+        margin: 50px 200px;
+    }
+</style>
+
+@code {
+    private SfToast Toast = new SfToast();
+ 
+    private bool IsToastVisible { get; set; } = false;
+
+    private ToastOption Options = new ToastOption();
+
+    protected override void OnInitialized()
+    {
+        toastService.ShowToastTrigger += (ToastOption options) =>
+        {
+            InvokeAsync(() =>
+            {
+                this.Options.Title = options.Title;
+                this.Options.Content = options.Content;
+                this.Options.PositionX = options.PositionX;
+                this.Options.Timeout = options.Timeout;
+                this.Options.CssClass = options.CssClass;
+                this.IsToastVisible = true;
+                this.StateHasChanged();
+                this.Toast.ShowAsync();
+            });
+        };
+        base.OnInitialized();
+    }
+}

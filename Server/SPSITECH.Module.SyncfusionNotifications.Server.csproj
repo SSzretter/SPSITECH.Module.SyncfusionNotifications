@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <Version>1.0.0</Version>
+    <Product>SPSITECH.Module.SyncfusionNotifications</Product>
+    <Authors>SPSITECH</Authors>
+    <Company>SPSITECH</Company>
+    <Description> Testing Syncfusion Notifications and Octane</Description>
+    <Copyright>SPSITECH</Copyright>
+    <AssemblyName>SPSITECH.Module.SyncfusionNotifications.Server.Oqtane</AssemblyName>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\_content\**\*.*" />
+    <None Include="wwwroot\_content\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.8" />
+	  <PackageReference Include="Syncfusion.Blazor" Version="27.1.51" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\SPSITECH.Module.SyncfusionNotifications.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Oqtane.Server" Version="5.2.2" />
+    <PackageReference Include="Oqtane.Shared" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Manager\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+</Project>

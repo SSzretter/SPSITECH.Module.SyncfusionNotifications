@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>    
+    <Version>1.0.0</Version>
+    <Product>SPSITECH.Module.SyncfusionNotifications</Product>
+    <Authors>SPSITECH</Authors>
+    <Company>SPSITECH</Company>
+    <Description> Testing Syncfusion Notifications and Octane</Description>
+    <Copyright>SPSITECH</Copyright>
+    <AssemblyName>SPSITECH.Module.SyncfusionNotifications.Shared.Oqtane</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Oqtane.Shared" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+</Project>
